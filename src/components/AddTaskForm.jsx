@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function AddTask({ onAddTask}) {
+function AddTask (AddTask) {
 
     const [text, setText] = useState('');
 
-    const makeSumbit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
         if (!text.trim()) return;
         const newTask ={
@@ -13,12 +13,13 @@ function AddTask({ onAddTask}) {
             completed: false
         };
 
-        onAddTask(newTask);
+        AddTask(newTask);
         setText('');
     }
 
     return (
-        <form onSubmit={makeSumbit}>
+        <>
+        <form onSubmit={onSubmit}>
             <input type="text" 
             placeholder="Enter your task..."
             value={text}
@@ -26,6 +27,8 @@ function AddTask({ onAddTask}) {
             />
             <button type="submit">Add Task</button>
         </form>
+        
+        </>
     );
 
     }

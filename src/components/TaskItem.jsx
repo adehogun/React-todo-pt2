@@ -1,19 +1,22 @@
-function TaskItem({task, toggledCompletion, deleteTask}) {
+import React from "react";
+
+function TaskItem({task, onToggleTaskCompletion, onDeleteTask}) {
+    task
 
     return (
-        <li>
+        <li> hddf
             <input
-            type="tickbox"
+            type="checkbox"
             checked={task.completed}
-            onChange={()=> toggledCompletion (task.id)}
+            onChange={()=> onToggleTaskCompletion (task.id)}
             />
 
             <span style={{ textDecoration: task.completed ? 'line-through' : 'none'}}>
                 {task.text}
             </span>
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button onClick={() => onDeleteTask(task.id)}>Delete</button>
         </li>
     );
 }
 
-export default TaskItem
+export default TaskItem;
